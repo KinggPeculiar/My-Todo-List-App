@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #292929;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    color: #ffffff;
+}
+
+.nav-menu {
+    width: 15%;
+    min-height: 100vh;
+}
+
+.hero-section {
+    background-image: url(images/wallpaper.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position-x: center;
+    background-position-y: top;border-radius: 5px;
+    opacity: 1;
+    width: 85%;
+    min-height: 100vh;
+    color: #ffffff;
+    position: relative;
+}
+
+.overlay {
+    width: 100%;
+    height: inherit;
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45); /* adjust brightness here */
+    z-index: 0;
+    padding: 20px;
+}
+
+.overlay > * {
+    position: relative;
+    z-index: 1;
+}
+
