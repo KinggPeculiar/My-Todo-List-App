@@ -9,18 +9,18 @@
     <body>
         <div class="container" id="container">
             <!-- Navbar -->
-            <div class="nav-menu">
+            <!-- <div class="nav-menu">
                 <header>
                     <h1>User Name</h1>
                     <h2>User Email</h2>
                 </header>
-            </div>
+            </div> -->
             <!-- Main Content -->
             <div class="hero-section">
                 <div class="overlay">
                     <header class="todo-app" id="todo-app">
                         <div>
-                            <h1>To-Do List</h1>
+                            <h1 class="app-title">To-Do List</h1>
                             <span class="date" id="date"></span>                        
                         </div>
                         <div>
@@ -37,8 +37,12 @@
                         </ul>
 
                         <form id="todo-form" class="todo-form">
-                            <input type="text" id="input-box" placeholder="Add a task">
-                            <button title="button" class="button" id="button"></button>
+                            <div class="button-wrapper">
+                                <button title="button" class="task-button" id="task-button"></button>
+                            </div>
+                            <div class="input-wrapper">
+                                <input type="text" id="input-box" class="input-box" placeholder="Add a task">
+                            </div>
                         </form>
                     </main>                    
                 </div>
