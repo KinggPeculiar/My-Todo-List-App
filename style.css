@@ -20,14 +20,14 @@ body {
     width: 100%;
     min-height: 100vh;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     color: var(--text-color);
 }
 
-.nav-menu {
+/* .nav-menu {
     width: 15%;
     height: 100%;
-}
+} */
 
 .hero-section {
     background-image: url(images/wallpaper.jpg);
