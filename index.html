@@ -31,22 +31,26 @@
                     </header>
                     <main>
                         <ul class="task-container" id="task-container">
-                            <li>Hello 1</li>
+                            <!-- <li>Hello 1</li>
                             <li>Hello 2</li>
-                            <li>Hello 3</li>
+                            <li>Hello 3</li> -->
                         </ul>
 
                         <form id="todo-form" class="todo-form">
                             <div class="button-wrapper">
-                                <button title="button" class="task-button" id="task-button"></button>
+                                <button title="button" class="task-button" id="task-button" onclick="addTask()"></button>
                             </div>
                             <div class="input-wrapper">
-                                <input type="text" id="input-box" class="input-box" placeholder="Add a task">
+                                <input type="text" id="input-box" class="input-box" placeholder="">
                             </div>
                         </form>
                     </main>                    
                 </div>
             </div>
-        </div>        
+        </div>       
+        
+        <script src="src/script.js"></script>
+        <script src="src/inputBox.js"></script>
+        <script src="src/taskContainer.js"></script>
     </body>
 </html>
