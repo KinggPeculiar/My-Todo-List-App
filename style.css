@@ -49,7 +49,6 @@ body {
     inset: 0;
     background: rgba(0, 0, 0, 0.02); /* adjust brightness here */
     z-index: 0;
-    padding: 20px;
 }
 
 .overlay > * {
@@ -64,22 +63,50 @@ main {
     height: 100%;
 }
 
-ul {
+.task-container {
+    padding: 20px;
     margin-top: 10px;
     width: 100%;
     height: 100px;
     max-height: auto;
     overflow-y: auto;
-    scrollbar-width: none;
     -ms-overflow-style: none;
+    scrollbar-width: thin;
+    scrollbar-color: var(--glass-bg) transparent;
     scroll-behavior: smooth;
-    /* scrollbar-gutter: stable; */
+    overscroll-behavior: auto;
+
 }
 
 .task-container::-webkit-scrollbar {
+    width: 5px;
+}
+
+.task-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.task-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #00feba, #5b548a);
+    border-radius: 10px;
+    opacity: 0.2;
+    transition: opacity 0.3s ease;
+}
+
+.task-container:hover::-webkit-scrollbar-thumb, .task-container:active::-webkit-scrollbar-thumb {
+    opacity: 1;
+}
+
+.task-container::-webkit-scrollbar-button {
     display: none;
-    width: 0;
     height: 0;
+    width: 0;
+}
+
+.task-container::-webkit-scrollbar-button:single-button {
+    display: none;
+    height: 0;
+    width: 0;
 }
 
 ul li {
@@ -104,7 +131,6 @@ ul li {
     min-width: 300px;
     position: fixed;
     bottom: 50px;
-    /* padding: 10px 12px; */
     border-radius: var(--glass-radius);
     cursor: text;
     display: flex;
