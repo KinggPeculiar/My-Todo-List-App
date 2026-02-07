@@ -3,56 +3,94 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My To-Do List App</title>
+        <title>Document</title>
         <link rel="stylesheet" href="style.css">
+        <style>
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        </style>
     </head>
     <body>
-        <div class="container" id="container">
-            <!-- Navbar -->
-            <!-- <div class="nav-menu">
-                <header>
-                    <h1>User Name</h1>
-                    <h2>User Email</h2>
-                </header>
-            </div> -->
-            <!-- Main Content -->
-            <div class="hero-section">
-                <div class="overlay">
-                    <header class="todo-app" id="todo-app">
-                        <div>
-                            <h1 class="app-title">To-Do List</h1>
-                            <span class="date" id="date"></span>                        
-                        </div>
-                        <div>
-                            <!-- icon -->
-                            <!-- icon -->
-                            <!-- Three dots for background theme -->
-                        </div>
-                    </header>
-                    <main>
-                        <ul class="task-container" id="task-container">
-                            <!-- <li>Hello 1</li>
-                            <li>Hello 2</li>
-                            <li>Hello 3</li> -->
-                        </ul>
-
-                        <form id="todo-form" class="todo-form">
-                            <div class="button-wrapper">
-                                <button title="button" class="task-button" id="task-button" onclick="addTask()"></button>
-                            </div>
-                            <div class="input-wrapper">
-                                <input type="text" id="input-box" class="input-box" placeholder="">
-                            </div>
-                        </form>
-                    </main>                    
+        <!-- HEADER BLOCK -->
+        <header class="nav-section">
+            <div class="nav-header">
+                <div class="user-profile">
+                    <img src="src/assets/IMG-20251124-WA0024.jpg" alt="User Image" class="user-image">
+                    <div class="user-info">
+                        <h1 class="user-name">Kingsley Peculiar</h1>
+                        <p class="user-email">kingsleypeculiar04@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div class="todo-task-search-form">
+                    <input type="text" class="task-search-field" placeholder="Search">
+                    <button><img src="src/assets/search-light.png" alt="Searc Button" class="task-search-btn"></button>
                 </div>
             </div>
-        </div>       
-        
-        <script src="src/script.js"></script>
-        <script src="src/inputBox.js"></script>
-        <script src="src/taskContainer.js"></script>
-        <script src="src/layoutSync.js"></script>
-        <script src="src/scrollBar.js"></script>
+
+            <div class="nav-menu">
+                <div class="nav-item">
+                    <img src="src/assets/sunshine-lighter-blue.png" alt="My Day">
+                    <p>My Day</p>
+                </div>
+                <div class="nav-item">
+                    <img src="src/assets/star-purple.png" alt="Important">
+                    <p>Important</p>
+                </div>
+                <div class="nav-item">
+                    <img src="src/assets/hamburger-neon-blue-column.png" alt="Planned">
+                    <p>Planned</p>
+                </div>
+                <div class="nav-item">
+                    <img src="src/assets/user-cyan.png" alt="Assigned">
+                    <p>Assigned to me</p>
+                </div>
+                <div class="nav-item">
+                    <img src="src/assets/pic5.png" alt="Tasks">
+                    <p>Tasks</p>
+                </div>                                                
+            </div>
+        </header>
+
+        <!-- MAIN BLOCK -->
+        <main>
+            <div class="hero-section">
+                <div class="overlay">
+                    <header>
+                        <div class="todo-header">
+                            <div class="todo-header-top">
+                                <h1 class="header-title">My Day</h1>
+
+                                <div class="assets-block">
+                                    <img src="src/assets/pic1.png" alt="">
+                                    <img src="src/assets/pic2.png" alt="">
+                                    <img src="src/assets/pic3.png" alt="">
+                                </div>
+                            </div>
+                            <div class="date">
+                                Date
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="todo-list-contents">
+                        <ul class="task-container">
+                            <li>Hello</li>
+                        </ul>
+
+                        <div class="input-form">
+                            <div class="input-button-wrapper">
+                                <button title="button" class="task-button" onclick="addTask()"></button>
+                            </div>
+                            <div class="input-box-wrapper">
+                                <input type="text" class="input-box" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
     </body>
 </html>
