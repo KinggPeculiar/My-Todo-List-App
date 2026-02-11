@@ -1,0 +1,334 @@
+:root {
+    --glass-bg: rgba(0, 0, 0, 0.7);
+    --glass-blur: blur(4px);
+    --glass-radius: 3px;
+    --text-color: rgba(255, 255, 255, 1);
+    --text-color-opac: rgba(255, 255, 255, 0.85);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+/* HEADER BLOCK */
+
+.nav-section {
+    background-color: rgba(10, 10, 10, 0.9);
+    width: 225px;
+    min-height: 100vh;
+    color: white;
+    padding: 2px;
+}
+
+.nav-header {
+    margin: 10px;
+}
+
+.user-profile {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.user-image {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    image-rendering: optimizeQuality;
+}
+
+.user-name {
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.user-email {
+    font-size: 0.7rem;
+    font-weight: 100;
+}
+
+.todo-task-search-form {
+    position: relative;
+    z-index: 0;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    height: 24px;
+    border-radius: 2px;
+}
+
+.task-search-field {
+    background: transparent;
+    height: 24px;
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    outline: none;
+    border-radius: 2px;
+    padding-left: 5px;
+}
+
+.task-search-field:focus {
+    background: transparent;
+    border: none;
+    color: white;
+}
+
+.task-search-field::placeholder {
+    color: var(--text-color);
+    font-weight: 100;
+    font-size: 0.8rem;
+}
+
+
+.todo-task-search-form button {
+    position: absolute;
+    right: 5px;
+    z-index: 1;
+    height: 15px;
+    width: 20px;
+    border-radius: 3px;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.todo-task-search-form button:hover {
+    background: rgba(67, 67, 67, 0.5);
+
+}
+
+.task-search-btn {
+    width: 8px;
+    height: 8px;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 2px;
+    font-size: 0.8rem;
+    padding: 2px 5px;
+    position: relative;
+    cursor: pointer;
+}
+
+.nav-item:hover {
+    background: rgba(67, 67, 67, 0.9);
+    border-left: 3px solid rgba(4, 234, 19, 0.9);
+}
+
+.nav-item span {
+    position: absolute;
+    left: 0px;
+    width: 3px;
+    height: 10px;
+    background-color: rgba(4, 234, 19, 0.9);
+    border-radius: 2px;
+    display: none;
+}
+
+.nav-item img {
+    padding: 2px;
+    width: 18px;
+    height: 18px;
+}
+
+/* MAIN BLOCK */
+main {
+    width: 100%;
+}
+
+.hero-section {
+    width: 100%;
+    min-height: 100vh;
+    color: white;
+    background-image: url(../assets/wallpaper1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+/* OVERLAY BLOCK */
+.overlay {
+    padding: 30px;
+    width: 100%;
+    min-height: inherit;
+    position: relative;
+    inset: 0;
+    /* adjust britness here */
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+.overlay > * {
+    position: relative;
+    z-index: 1;
+}
+
+.overlay header {
+    height: 80px;
+}
+
+.todo-header-top {
+    display: flex;
+    align-items: center;
+}
+
+.header-title {
+    margin-bottom: 5px;
+    margin-right: auto;
+}
+
+.assets-block {
+
+    
+}
+
+.assets-block img {
+    width: 19px;
+    height: 19px;
+    padding: 4px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 2px;
+}
+
+.date {
+    font-size: 0.8rem;
+}
+
+.task-container {
+    height: 70vh;
+    min-height: 300px;
+    width: 100%;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    overscroll-behavior: auto;
+    /* background-color: red; */
+}
+
+.task-container li {
+    list-style: none;
+    background: var(--glass-bg); /* adjust brightness here */
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    background-blend-mode: color-burn;
+    border-radius: var(--glass-radius);
+    padding: 10px 8px 10px 30px;
+    margin-bottom: 2px;
+    font-size: 0.9rem;
+    font-weight: lighter;
+    color: white;
+    position: relative;
+}
+
+.task-container li:hover {
+    background: rgba(40, 40, 40, 0.7);
+}
+
+.task-container li span {
+    position: absolute;
+    right: 4px;
+    width: 20px;
+    height: 20px;
+    font-size: 18px;
+    color: #555555;
+    text-align: center;
+    cursor: pointer;
+}
+
+.task-container li span:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+}
+
+/* checkbox UI */
+ul li::before {
+    content: "";
+    position: absolute;
+    background-image: url(../assets/unchecked.png);
+    background-size: cover;
+    background-position: center;
+    left: 8px;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.checked {
+    color: #555555;
+    text-decoration: line-through;
+}
+
+.checked::before {
+    background-image: url(../assets/check-box.png);
+}
+
+
+.input-form {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    width: 100%;
+    border-radius: var(--glass-radius);
+    cursor: text;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 0 10px;
+}
+
+.task-button {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background: none;
+    cursor: pointer; 
+}
+
+.input-box-wrapper {
+    width: 100%;
+}
+
+.input-box {
+    background-color: transparent !important;
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    width: 100%;
+    height: 40px;
+}
+
+.input-box::placeholder {
+    color: rgba(255, 255, 255, 0.60);
+}
