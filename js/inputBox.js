@@ -1,18 +1,20 @@
-// inputBox variable declared in script.js (line 1)
+export function inputBox() {
+    const inputField = document.querySelector(".input-box");
 
-const defaultPlaceholder = "Add a task";
-const activePlaceholder = "What's on your agenda?"
+    const defaultPlaceholder = "Add a task";
+    const activePlaceholder = "What's on your agenda?"
 
-inputBox.placeholder = defaultPlaceholder;
+    inputField.placeholder = defaultPlaceholder;
 
-inputBox.addEventListener("focus", () => {
-    if(inputBox.value === "") {
-        inputBox.placeholder = activePlaceholder;
-    }
-});
+    inputField.addEventListener("focus", () => {
+        if(inputField.value === "") {
+            inputField.placeholder = activePlaceholder;
+        }
+    });
 
-inputBox.addEventListener("blur", () => {
-    if (inputBox.value === "") {
-        inputBox.placeholder = defaultPlaceholder;
-    }
-});
+    inputField.addEventListener("blur", () => {
+        if (inputField.value === "") {
+            inputField.placeholder = defaultPlaceholder;
+        }
+    });    
+}
