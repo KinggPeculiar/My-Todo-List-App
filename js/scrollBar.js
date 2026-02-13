@@ -28,12 +28,16 @@ export function scrollBar() {
   // Set height of overlayContainer to be equal in ratio to todoTaskContainer
   const overlayContainerHeight = overlayContainer.clientHeight;
   const todoTaskContainerHeight = todoTaskContainer.scrollHeight;
+  const scrollBarMargin = 5;
 
   
+  const usableHeight = overlayContainerHeight - (scrollBarMargin * 2);
   const ratio = Math.min(overlayContainerHeight / todoTaskContainerHeight, 1);
-  const newThumbHeight = overlayContainerHeight * ratio;
+
+  const newThumbHeight = usableHeight * ratio;
 
   newThumb.style.height = `${newThumbHeight}px`;
+  newThumb.style.top = `${scrollBarMargin}px`;
 
   // Check if content overflows
   function isOverflowing() {
