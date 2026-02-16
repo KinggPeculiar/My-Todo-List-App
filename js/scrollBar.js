@@ -54,8 +54,10 @@ export function scrollBar() {
     scrollThumb.style.display = "block";
 
     // scrollThumb height
+    const MinScrollThumbHeight = 20;
     const ratio = visibleHeight / contentHeight;
-    const scrollThumbHeight = overlayHeight * ratio;
+    const usableScrollThumbHeight = overlayHeight * ratio;
+    const scrollThumbHeight = Math.max(usableScrollThumbHeight, MinScrollThumbHeight);
     scrollThumb.style.height = scrollThumbHeight + "px";
 
     // scrollThumb position
