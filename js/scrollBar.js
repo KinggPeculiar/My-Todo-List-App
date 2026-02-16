@@ -65,15 +65,25 @@ export function scrollBar() {
 
     scrollThumb.style.top = scrollRatio * maxScrollThumbTop + "px";
 
-    showScrollThumb()
+    showScrollThumb();
   }
 
   // Events
   taskContainer.addEventListener("scroll", updatescrollThumb);
+
+  // Resize window
   window.addEventListener("resize", updatescrollThumb);
 
+  // Resize container
   const observer = new ResizeObserver(updatescrollThumb);
   observer.observe(taskContainer);
+
+  // DOM mutations (tasks add/remove)
+  const mutationObserver = new MutationObserver(updatescrollThumb);
+  mutationObserver.observe(taskContainer, {
+    childList: true,
+    subtree: true
+  });
 
   // Initial run
   updatescrollThumb();
