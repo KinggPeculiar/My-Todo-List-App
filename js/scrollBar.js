@@ -1,44 +1,80 @@
 export function scrollBar() {
-  const overlayContainer = document.querySelector(".overlay");
-  const todoTaskContainer = document.querySelector(".task-container")
+  const overlay = document.querySelector(".overlay");
+  const taskContainer = document.querySelector(".task-container")
   let fadeTimeout;
 
   // Create a "fake" thumb overlay
-  const newThumb = document.createElement("div");
-  newThumb.className = "scroll-thumb";
-  overlayContainer.appendChild(newThumb);
+  const scrollThumb = document.createElement("div");
+  scrollThumb.className = "scroll-thumb";
+  overlay.appendChild(scrollThumb);
 
   // Style the thumb with js
-  Object.assign(newThumb.style, {
+  Object.assign(scrollThumb.style, {
     position: "absolute",
-    right: "1px",
+    right: "2px",
     top: "0",
-    width: "5px",
+    width: "2px",
     height: "50px",
-    borderRadius: "10px",
-    background: "rgba(0, 0, 0, 0.7)",
+    borderRadius: "2px",
+    background: "rgba(255, 255, 255, 0.85)",
     opacity: "1",
     transition: "opacity 0.3s",
     pointerEvents: "none", // don't block scrolling
-    display: "block", // to hide intially
-    backgroundColor: "red"
+    display: "none", // to hide intially
   });
-
-
-  // Set height of overlayContainer to be equal in ratio to todoTaskContainer
-  const overlayContainerHeight = overlayContainer.clientHeight;
-  const todoTaskContainerHeight = todoTaskContainer.scrollHeight;
-
-  
-  const ratio = Math.min(overlayContainerHeight / todoTaskContainerHeight, 1);
-  const newThumbHeight = overlayContainerHeight * ratio;
-
-  newThumb.style.height = `${newThumbHeight}px`;
 
   // Check if content overflows
   function isOverflowing() {
-    return overlayContainer.scrollHeight > todoTaskContainer.clientHeight;
+    return taskContainer.scrollHeight > taskContainer.clientHeight;
+  };
+
+  // Fade system
+  function showScrollThumb() {
+    scrollThumb.style.opacity = "1";
+    scrollThumb.style.display = "block";
+
+    clearTimeout(fadeTimeout);
+    fadeTimeout = setTimeout(() => {
+      scrollThumb.style.opacity = "0";
+    }, 1200);
   }
 
-  console.log(isOverflowing());
+  // Update scrollThumb position and size
+  function updatescrollThumb() {
+    // Set height of overlayContainer to be equal in ratio to todoTaskContainer
+    const overlayHeight = overlay.clientHeight;
+    const contentHeight = taskContainer.scrollHeight;
+    const visibleHeight = taskContainer.clientHeight;
+
+    if(!isOverflowing()) {
+      scrollThumb.style.display = "none"; // to hide scrollThumb if not overflowing
+      return;
+    }
+
+    scrollThumb.style.display = "block";
+
+    // scrollThumb height
+    const ratio = visibleHeight / contentHeight;
+    const scrollThumbHeight = overlayHeight * ratio;
+    scrollThumb.style.height = scrollThumbHeight + "px";
+
+    // scrollThumb position
+    const scrollTop = taskContainer.scrollTop;
+    const scrollRatio = scrollTop / (contentHeight - visibleHeight);
+    const maxScrollThumbTop = overlayHeight - scrollThumbHeight;
+
+    scrollThumb.style.top = scrollRatio * maxScrollThumbTop + "px";
+
+    showScrollThumb()
+  }
+
+  // Events
+  taskContainer.addEventListener("scroll", updatescrollThumb);
+  window.addEventListener("resize", updatescrollThumb);
+
+  const observer = new ResizeObserver(updatescrollThumb);
+  observer.observe(taskContainer);
+
+  // Initial run
+  updatescrollThumb();
 }
