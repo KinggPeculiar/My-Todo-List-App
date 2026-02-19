@@ -11,7 +11,7 @@ export function scrollBar() {
   // Style the thumb with js
   Object.assign(scrollThumb.style, {
     position: "absolute",
-    right: "4px",
+    right: "2px",
     top: "0",
     width: "2px",
     height: "50px",
@@ -21,7 +21,6 @@ export function scrollBar() {
     transition: "opacity 0.3s",
     pointerEvents: "none", // don't block scrolling
     display: "none", // to hide intially
-    transition: "top 0.2s ease, opacity 0.3 ease"
   });
 
   // Check if content overflows
