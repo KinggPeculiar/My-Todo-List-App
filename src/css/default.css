@@ -139,6 +139,8 @@ body {
     padding: 2px 5px;
     position: relative;
     cursor: pointer;
+    text-decoration: none;
+    color: var(--text-color);
 }
 
 .nav-item:hover {

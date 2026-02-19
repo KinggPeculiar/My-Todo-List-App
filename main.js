@@ -1,7 +1,15 @@
-import { inputBox } from "./js/inputBox.js";
-import { taskContainer } from "./js/taskContainer.js";
-import { scrollBar } from "./js/scrollBar.js";
+import { registerRoute, navigateTo, router } from "./src/routes/router.js";
+import MyDay from "./src/pages/Home.js";
 
-inputBox();
-taskContainer();
-scrollBar();
+registerRoute("/", MyDay);
+
+document.addEventListener("click", e => {
+    if (e.target.matches("[data-link]")) {
+        e.preventDefault();
+        navigateTo(e.target.href);
+    }
+});
+
+window.addEventListener("popstate", router);
+
+router();
