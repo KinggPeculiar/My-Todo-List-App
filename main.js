@@ -1,6 +1,6 @@
-import { inputBox } from "./js/inputBox.js";
-import { taskContainer } from "./js/taskContainer.js";
-import { scrollBar } from "./js/scrollBar.js";
+import { inputBox } from "./src/features/tasks/inputBox.js";
+import { taskContainer } from "./src/features/tasks/taskContainer.js";
+import { scrollBar } from "./src/features/tasks/scrollBar.js";
 
 inputBox();
 taskContainer();
